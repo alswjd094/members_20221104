@@ -13,10 +13,14 @@
 </head>
 <body>
 <button onclick="saveFn()" class="btn btn-primary">회원가입</button>
+<button onclick="loginFn()" class="btn btn-primary">로그인</button>
 </body>
 <script>
     const saveFn = () => {
         location.href="/save";
+    }
+    const loginFn = () => {
+     location.href="/login";
     }
 </script>
 </html>

@@ -44,4 +44,13 @@ public class MemberService {
             return "no";
         }
     }
+
+    public boolean login(MemberDTO memberDTO) {
+        MemberDTO loginResult = memberRepository.login(memberDTO);
+        if(loginResult != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
