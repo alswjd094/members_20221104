@@ -18,7 +18,7 @@
 </body>
 <script>
   const findAllFn = () => {
-    location.href="/members";
+    location.href="/paging";
   }
 </script>
 </html>

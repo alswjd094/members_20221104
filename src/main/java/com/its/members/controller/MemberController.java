@@ -1,6 +1,7 @@
 package com.its.members.controller;
 
 import com.its.members.dto.MemberDTO;
+import com.its.members.dto.PageDTO;
 import com.its.members.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,5 +66,25 @@ public class MemberController {
         List<MemberDTO> memberList = memberService.findAll();
         model.addAttribute("memberList",memberList);
         return "memberList";
+    }
+    @GetMapping("/paging")
+    public String paging(Model model,@RequestParam(value = "page", required = false,defaultValue = "1")int page){
+        List<MemberDTO> pagingList = memberService.pagingList(page);
+        model.addAttribute("memberList",pagingList);
+        PageDTO pageDTO = memberService.pagingParam(page);
+        model.addAttribute("paging",pageDTO);
+        return "memberPaging";
+    }
+    @GetMapping("/deleteCheck")
+    public String findById(@RequestParam("id") Long id,Model model){
+        MemberDTO deleteForm = memberService.findById(id);
+        model.addAttribute("findById",deleteForm);
+        return "deleteCheck";
+    }
+
+    @GetMapping("/delete")
+    public String delete (@RequestParam ("id") Long id){
+        memberService.delete(id);
+        return "redirect:/members";
     }
 }

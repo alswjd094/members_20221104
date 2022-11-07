@@ -32,19 +32,17 @@
         <td>${member.memberName}</td>
         <td>${member.memberMobile}</td>
         <td>${member.memberProfile}</td>
-        <td><button onclick="deleteFn()" class="btn btn-danger"></button></td>
+        <td><button onclick="deleteFn('${member.id}')" class="btn btn-danger">삭제하기</button></td>
       </tr>
     </c:forEach>
-    <c:if test="${sessionScope.loginEmail == 'admin'}">
-
-    </c:if>
   </table>
 
 </div>
 </body>
 <script>
-  const deleteFn = () => {
-    location.href="/delete";
+  const deleteFn = (clickedId) => {
+  console.log("클릭한 id값: "+clickedId);
+    location.href="/deleteCheck?id="+clickedId;
   }
 </script>
 </html>

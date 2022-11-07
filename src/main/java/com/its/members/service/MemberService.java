@@ -1,6 +1,8 @@
 package com.its.members.service;
 
+import com.its.members.commons.PagingConst;
 import com.its.members.dto.MemberDTO;
+import com.its.members.dto.PageDTO;
 import com.its.members.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,7 +10,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MemberService {
@@ -59,4 +63,39 @@ public class MemberService {
     public List<MemberDTO> findAll() {
         return memberRepository.findAll();
     }
+
+    public MemberDTO findById(Long id) {
+        return memberRepository.findById(id);
+    }
+
+    public void delete(Long id) {
+        memberRepository.delete(id);
+    }
+
+    public List<MemberDTO> pagingList(int page) {
+        int pagingStart = (page-1)* PagingConst.PAGE_LIMIT;
+        Map<String,Integer> pagingParams = new HashMap<>();
+        pagingParams.put("start",pagingStart);
+        pagingParams.put("limit",PagingConst.PAGE_LIMIT);
+        List<MemberDTO> pagingList = memberRepository.pagingList(pagingParams);
+        return pagingList;
+    }
+
+    public PageDTO pagingParam(int page) {
+        int boardCount = memberRepository.boardCount();
+        int maxPage = (int) (Math.ceil((double) boardCount / PagingConst.PAGE_LIMIT));
+        int startPage = (((int)(Math.ceil((double) page / PagingConst.BLOCK_LIMIT))) - 1) * PagingConst.BLOCK_LIMIT + 1;
+        int endPage = startPage + PagingConst.BLOCK_LIMIT - 1;
+        if(endPage >maxPage){
+            endPage = maxPage;
+        }
+
+        PageDTO pageDTO = new PageDTO();
+        pageDTO.setPage(page);
+        pageDTO.setMaxPage(maxPage);
+        pageDTO.setStartPage(startPage);
+        pageDTO.setEndPage(endPage);
+        return pageDTO;
+    }
+
 }

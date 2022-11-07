@@ -67,7 +67,7 @@
             return false;
         }else if(!document.saveForm.memberMobile.value.match(exp2)) {
             const mobileCheck = document.getElementById("mobile-input-check");
-            mobileCheck.innerHTML = "전화번호를 다시 입력해주세요";
+            mobileCheck.innerHTML = "000-0000-0000형식으로 입력해주세요";
             mobileCheck.style.color = "red";
             return false;
         }

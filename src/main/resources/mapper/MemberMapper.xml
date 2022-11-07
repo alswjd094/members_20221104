@@ -19,6 +19,18 @@
     <select id="findAll" resultType="member" parameterType="member">
         select * from members_table;
     </select>
+    <select id="findById" resultType="member" parameterType="member">
+        select * from members_table where id=#{id}
+    </select>
+    <delete id="delete" parameterType="Long">
+        delete form members_table where id=#{id}
+    </delete>
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="member">
+        select * from members_table order by id desc limit #{start},#{limit}
+    </select>
+    <select id="boardCount" resultType="Integer">
+        select count(id) from members_table
+    </select>
 </mapper>
 
 
