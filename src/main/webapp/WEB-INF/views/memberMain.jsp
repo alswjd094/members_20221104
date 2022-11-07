@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.css">
 </head>
 <body>
-
+<button onclick="logout()" class="btn btn-danger">로그아웃</button>
 </body>
+<script>
+    const logout = () => {
+        location.href="/logout";
+    }
+</script>
 </html>
