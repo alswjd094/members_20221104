@@ -16,6 +16,9 @@
     <select id="login" resultType="member" parameterType="member">
         select * from members_table where memberEmail=#{memberEmail}
     </select>
+    <select id="findAll" resultType="member" parameterType="member">
+        select * from members_table;
+    </select>
 </mapper>
 
 

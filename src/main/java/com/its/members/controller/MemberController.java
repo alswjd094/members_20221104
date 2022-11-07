@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class MemberController {
@@ -53,5 +54,16 @@ public class MemberController {
     public String logout(HttpSession session){
         session.invalidate();
         return"index";
+    }
+
+    @GetMapping("/admin")
+    public String admin(){
+        return "admin";
+    }
+    @GetMapping("/members")
+    public String findAll(Model model){
+        List<MemberDTO> memberList = memberService.findAll();
+        model.addAttribute("memberList",memberList);
+        return "memberList";
     }
 }

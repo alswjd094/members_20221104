@@ -14,6 +14,7 @@
 <body>
 <button onclick="saveFn()" class="btn btn-primary">회원가입</button>
 <button onclick="loginFn()" class="btn btn-primary">로그인</button>
+<button onclick="listFn()" class="btn btn-primary">글목록</button>
 </body>
 <script>
     const saveFn = () => {
@@ -21,6 +22,9 @@
     }
     const loginFn = () => {
      location.href="/login";
+    }
+    const listFn = () => {
+        location.href="/admin";
     }
 </script>
 </html>
