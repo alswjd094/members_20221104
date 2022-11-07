@@ -25,9 +25,10 @@ public class MemberService {
             MultipartFile memberFile = memberDTO.getMemberFile();
             String originalFileName = memberFile.getOriginalFilename();
             String storedFileName = System.currentTimeMillis() + "-" + originalFileName;
+            System.out.println("storedFileName = " + storedFileName);
             memberDTO.setOriginalFileName_profile(originalFileName);
             memberDTO.setStoredFileName_profile(storedFileName);
-            String savePath = "C:\\spring_img" + storedFileName;
+            String savePath = "C:\\spring_img\\" + storedFileName;
             memberFile.transferTo(new File(savePath));
             memberDTO.setMemberProfile(1);
             MemberDTO saveMember = memberRepository.save(memberDTO);

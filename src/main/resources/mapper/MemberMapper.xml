@@ -10,7 +10,7 @@
     <select id="emailDuplicateCheck" resultType="String" parameterType="member">
         select memberEmail from members_table where memberEmail=#{memberEmail}
     </select>
-<insert id="saveFileName" parameterType="member">
+<insert id="saveFile" parameterType="member">
     insert into members_file_table(originalFileName_profile,storedFileName_profile,memberId) values(#{originalFileName_profile},#{storedFileName_profile},#{id})
 </insert>
     <select id="login" resultType="member" parameterType="member">

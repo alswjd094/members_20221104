@@ -22,6 +22,7 @@
       <th>이름</th>
       <th>전화번호</th>
       <th>프로필사진</th>
+      <th>회원삭제</th>
     </tr>
     <c:forEach items="${memberList}" var="member">
       <tr>
@@ -31,11 +32,19 @@
         <td>${member.memberName}</td>
         <td>${member.memberMobile}</td>
         <td>${member.memberProfile}</td>
+        <td><button onclick="deleteFn()" class="btn btn-danger"></button></td>
       </tr>
     </c:forEach>
+    <c:if test="${sessionScope.loginEmail == 'admin'}">
 
+    </c:if>
   </table>
 
 </div>
 </body>
+<script>
+  const deleteFn = () => {
+    location.href="/delete";
+  }
+</script>
 </html>
