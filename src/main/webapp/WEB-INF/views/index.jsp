@@ -9,8 +9,14 @@
 <html>
 <head>
     <title>index.jsp</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.css">
 </head>
 <body>
-
+<button onclick="saveFn()" class="btn btn-primary">회원가입</button>
 </body>
+<script>
+    const saveFn = () => {
+        location.href="/save";
+    }
+</script>
 </html>

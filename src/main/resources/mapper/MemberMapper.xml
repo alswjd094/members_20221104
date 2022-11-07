@@ -4,7 +4,15 @@
 
 
 <mapper namespace="Member">
-
+<insert id="save" parameterType="member" useGeneratedKeys="true" keyProperty="id">
+    insert into members_table(memberEmail,memberPassword,memberName,memberMobile,memberProfile) values(#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile}, #{memberProfile})
+</insert>
+    <select id="emailDuplicateCheck" resultType="String" parameterType="member">
+        select memberEmail from members_table where memberEmail=#{memberEmail}
+    </select>
+<insert id="saveFileName" parameterType="member">
+    insert into members_file_table(originalFileName_profile,storedFileName_profile,memberId) values(#{originalFileName_profile},#{storedFileName_profile},#{id})
+</insert>
 </mapper>
 
 
