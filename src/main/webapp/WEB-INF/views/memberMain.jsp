@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>memberMain.jsp</title>
@@ -13,10 +14,20 @@
 </head>
 <body>
 <button onclick="logout()" class="btn btn-danger">로그아웃</button>
+<button onclick="writeFn()" class="btn btn-primary">글작성</button>
+<c:if test="${sessionScope.loginEmail == 'admin'}">
+<button onclick="pagingListFn()" class="btn btn-primary">관리자페이지</button>
+</c:if>
 </body>
 <script>
     const logout = () => {
         location.href="/logout";
+    }
+    const writeFn = () => {
+        location.href="/writing";
+    }
+    const pagingListFn = () => {
+        location.href="/admin";
     }
 </script>
 </html>

@@ -14,8 +14,9 @@
 <body>
 <button onclick="saveFn()" class="btn btn-primary">회원가입</button>
 <button onclick="loginFn()" class="btn btn-primary">로그인</button>
-<%--<button onclick="listFn()" class="btn btn-primary">글목록</button>--%>
-<button onclick="pagingListFn()" class="btn btn-primary">페이징목록</button>
+<%--<button onclick="boardListFn()" class="btn btn-primary">글목록</button>--%>
+<button onclick="listPagingFn()" class="btn btn-primary">글목록</button>
+
 </body>
 <script>
     const saveFn = () => {
@@ -24,11 +25,12 @@
     const loginFn = () => {
      location.href="/login";
     }
-    const pagingListFn = () => {
-        location.href="/admin";
+    const boardListFn = () => {
+     location.href="/board";
     }
-    const pagingFn = () => {
+    const listPagingFn = () => {
         location.href="/paging";
     }
+
 </script>
 </html>

@@ -65,23 +65,19 @@ public class MemberController {
     public String findAll(Model model){
         List<MemberDTO> memberList = memberService.findAll();
         model.addAttribute("memberList",memberList);
+        System.out.println("memberList = " + memberList);
         return "memberList";
     }
-    @GetMapping("/paging")
-    public String paging(Model model,@RequestParam(value = "page", required = false,defaultValue = "1")int page){
-        List<MemberDTO> pagingList = memberService.pagingList(page);
-        model.addAttribute("memberList",pagingList);
-        PageDTO pageDTO = memberService.pagingParam(page);
-        model.addAttribute("paging",pageDTO);
-        return "memberPaging";
-    }
+
     @GetMapping("/deleteCheck")
     public String findById(@RequestParam("id") Long id,Model model){
         MemberDTO deleteForm = memberService.findById(id);
         model.addAttribute("findById",deleteForm);
+        System.out.println("deleteForm = " + deleteForm);
+        System.out.println("id = " + id + ", model = " + model);
+        System.out.println("MemberController.findById");
         return "deleteCheck";
     }
-
     @GetMapping("/delete")
     public String delete (@RequestParam ("id") Long id){
         memberService.delete(id);

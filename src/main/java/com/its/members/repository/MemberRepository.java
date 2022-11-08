@@ -40,11 +40,4 @@ public class MemberRepository {
         sql.delete("Member.delete",id);
     }
 
-    public List<MemberDTO> pagingList(Map<String, Integer> pagingParams) {
-        return sql.selectList("Member.pagingList",pagingParams);
-    }
-
-    public int boardCount() {
-        return sql.selectOne("Member.boardCount");
-    }
 }

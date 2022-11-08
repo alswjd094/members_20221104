@@ -40,9 +40,8 @@
 </div>
 </body>
 <script>
-  const deleteFn = (clickedId) => {
-  console.log("클릭한 id값: "+clickedId);
-    location.href="/deleteCheck?id="+clickedId;
-  }
+const deleteFn = (clickedId) => {
+  location.href="/deleteCheck?id="+clickedId;
+}
 </script>
 </html>

@@ -14,11 +14,9 @@
 </head>
 <body>
 <div class="container">
-  <c:if test="${sessionScope.loginEmail == 'admin'}">
-<%--    <input type="text" name="memberEmail" id="memberEmail" placeholder="관리자 ID" class="form-control">--%>
-    <input type="password" name="memberPassword" id="memberPassword" placeholder="관리자 비밀번호" class="form-control">
-    <button onclick="deleteCheck()" class="btn btn-secondary">확인</button>
-  </c:if>
+   <input type="password" name="memberPassword" id="memberPassword" placeholder="관리자 비밀번호" class="form-control">
+   <button onclick="deleteCheck()" class="btn btn-secondary">확인</button>
+
 </div>
 </body>
 <script>
@@ -29,7 +27,7 @@
     if(passDB === passAdmin){
       location.href="/delete?id="+id;
     } else{
-      alert("관리자ID가 일치하지 않습니다.");
+      alert("비밀번호가 일치하지 않습니다.");
     }
   }
 </script>
