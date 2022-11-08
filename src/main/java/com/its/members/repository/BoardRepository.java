@@ -18,18 +18,24 @@ public class BoardRepository {
     }
 
     public void saveFileName2(BoardDTO boardDTO) {
-        sql.insert("Board.saveFileName2",boardDTO);
-    }
 
-    public List<BoardDTO> board() {
-        return sql.selectList("Board.board");
+        sql.insert("Board.saveFileName2",boardDTO);
     }
 
     public List<BoardDTO> pagingList(Map<String, Integer> pagingParams) {
         return sql.selectList("Board.pagingList",pagingParams);
     }
 
-    public int pagingParam() {
+    public int boardCount() {
+
         return sql.selectOne("Board.boardCount");
+    }
+
+    public void updateHits(Long id) {
+        sql.update("Board.updateHits",id);
+    }
+
+    public BoardDTO findById(Long id) {
+        return sql.selectOne("Board.findById",id);
     }
 }

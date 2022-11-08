@@ -44,10 +44,6 @@ public class BoardService {
         }
     }
 
-    public List<BoardDTO> board() {
-        return boardRepository.board();
-    }
-
     public List<BoardDTO> pagingList(int page) {
         int pagingStart = (page - 1) * PagingConst.PAGE_LIMIT;
         Map<String, Integer> pagingParams = new HashMap<>();
@@ -59,7 +55,7 @@ public class BoardService {
     }
 
     public PageDTO pagingParam(int page) {
-        int boardCount = boardRepository.pagingParam();
+        int boardCount = boardRepository.boardCount();
         int maxPage = (int) (Math.ceil((double) boardCount / PagingConst.PAGE_LIMIT));
         int startPage = (((int) (Math.ceil((double) page / PagingConst.BLOCK_LIMIT))) - 1) * PagingConst.BLOCK_LIMIT + 1;
 
@@ -74,5 +70,13 @@ public class BoardService {
         pageDTO.setStartPage(startPage);
         pageDTO.setEndPage(endPage);
         return pageDTO;
+    }
+
+    public void updateHits(Long id) {
+        boardRepository.updateHits(id);
+    }
+
+    public BoardDTO findById(Long id) {
+        return boardRepository.findById(id);
     }
 }

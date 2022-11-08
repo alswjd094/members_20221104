@@ -30,12 +30,7 @@ public class BoardController {
        boardService.writing(boardDTO);
             return"redirect:/paging";
     }
-    @GetMapping("/board")
-    public String board(Model model){
-        List<BoardDTO> boardDTO = boardService.board();
-        model.addAttribute("findAll",boardDTO);
-        return"boardList";
-    }
+
     @GetMapping("/paging")
     public String paging(Model model, @RequestParam(value = "page",required = false, defaultValue = "1") int page){
         List<BoardDTO> pagingList = boardService.pagingList(page);
@@ -43,5 +38,13 @@ public class BoardController {
         PageDTO pageDTO =  boardService.pagingParam(page);
         model.addAttribute("paging",pageDTO);
         return"boardPaging";
+    }
+
+    @GetMapping("/board")
+    public String findById(@RequestParam("id")Long id,Model model){
+        boardService.updateHits(id);
+        BoardDTO findByIdResult = boardService.findById(id);
+        model.addAttribute("findById",findByIdResult);
+        return "boardDetail";
     }
 }

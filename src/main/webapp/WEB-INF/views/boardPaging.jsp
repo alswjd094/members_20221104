@@ -27,7 +27,7 @@
             <tr>
                 <td>${board.id}</td>
                 <td>${board.boardWriter}</td>
-                <td>${board.boardTitle}</td>
+                <td><a href="/board?id=${board.id}">${board.boardTitle}</a></td>
                 <td>${board.boardContents}</td>
                 <td><fmt:formatDate value="${board.boardCreatedDate}" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td>
             </tr>
@@ -86,10 +86,4 @@
     </ul>
 </div>
 </body>
-<script>
-    const deleteFn = (clickedId) => {
-        console.log("클릭한 id값: "+clickedId);
-        location.href="/deleteCheck?id="+clickedId;
-    }
-</script>
 </html>

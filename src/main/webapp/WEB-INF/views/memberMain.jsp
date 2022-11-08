@@ -16,7 +16,7 @@
 <button onclick="logout()" class="btn btn-danger">로그아웃</button>
 <button onclick="writeFn()" class="btn btn-primary">글작성</button>
 <c:if test="${sessionScope.loginEmail == 'admin'}">
-<button onclick="pagingListFn()" class="btn btn-primary">관리자페이지</button>
+<button onclick="pagingListFn()" class="btn btn-warning">관리자페이지</button>
 </c:if>
 </body>
 <script>
