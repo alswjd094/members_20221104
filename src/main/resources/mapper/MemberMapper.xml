@@ -16,14 +16,14 @@
     <select id="login" resultType="member" parameterType="member">
         select * from members_table where memberEmail=#{memberEmail}
     </select>
-    <select id="findAll" resultType="member" >
+    <select id="findAll" resultType="member">
         select * from members_table
     </select>
     <select id="findById" resultType="member" parameterType="member">
         select * from members_table where id=#{id}
     </select>
     <delete id="delete" parameterType="Long">
-        delete form members_table where id=#{id}
+        delete from members_table where id=#{id}
     </delete>
 
 </mapper>

@@ -41,7 +41,7 @@
 </body>
 <script>
 const deleteFn = (clickedId) => {
-  location.href="/deleteCheck?id="+clickedId;
+  location.href="/delete?id="+clickedId;
 }
 </script>
 </html>

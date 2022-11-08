@@ -24,7 +24,8 @@
     const passDB = ${findById.memberPassword};
     const passAdmin = document.getElementById("memberPassword").value;
     const id = ${findById.id};
-    if(passDB === passAdmin){
+    const emailAdmin = ${findById.memberEmail}
+    if(emailAdmin === "admin" && passDB === passAdmin){
       location.href="/delete?id="+id;
     } else{
       alert("비밀번호가 일치하지 않습니다.");
