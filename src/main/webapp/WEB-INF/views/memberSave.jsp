@@ -38,6 +38,7 @@
         console.log("save함수호출");
         const exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{4,12}$/;
         const exp2 = /^\d{3}-\d{4}-\d{4}$/;
+        const mobile = document.getElementById("memberMobile");
 
         if(document.saveForm.memberEmail.value ==""){
             const emailCheck = document.getElementById("email-input-check");
@@ -54,8 +55,7 @@
             passwordCheck.innerHTML="영문 소/대문자와 숫자를 이용하여 4~12자 이내로 입력하세요";
             passwordCheck.style.color="red";
             return false;
-        }
-        else if(document.saveForm.memberName.value ==""){
+        }else if(document.saveForm.memberName.value ==""){
             const nameCheck = document.getElementById("name-input-check");
             nameCheck.innerHTML="이름을 입력해주세요";
             nameCheck.style.color="red";
@@ -65,11 +65,11 @@
             mobileCheck.innerHTML="전화번호를 입력해주세요";
             mobileCheck.style.color="red";
             return false;
-        }else if(!document.saveForm.memberMobile.value.match(exp2)) {
-            const mobileCheck = document.getElementById("mobile-input-check");
-            mobileCheck.innerHTML = "000-0000-0000형식으로 입력해주세요";
-            mobileCheck.style.color = "red";
-            return false;
+        // }else if(!mobile.match(exp2)) {
+        //     const mobileCheck = document.getElementById("mobile-input-check");
+        //     mobileCheck.innerHTML ="000-0000-0000형식으로 입력해주세요";
+        //     mobileCheck.style.color = "red";
+        //     return false;
         }
         document.saveForm.submit();
     }
