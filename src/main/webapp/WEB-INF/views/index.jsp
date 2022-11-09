@@ -12,11 +12,13 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.css">
 </head>
 <body>
-<button onclick="saveFn()" class="btn btn-primary">회원가입</button>
-<button onclick="loginFn()" class="btn btn-primary">로그인</button>
+<div class="col text-center">
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
+<button onclick="saveFn()" class="btn btn-primary" >회원가입</button>
+<button onclick="loginFn()" class="btn btn-primary" >로그인</button>
 <%--<button onclick="boardListFn()" class="btn btn-primary">글목록</button>--%>
-<button onclick="listPagingFn()" class="btn btn-primary">글목록</button>
-
+<button onclick="listPagingFn()" class="btn btn-primary" >글목록</button>
+</div>
 </body>
 <script>
     const saveFn = () => {

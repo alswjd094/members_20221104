@@ -17,15 +17,23 @@
 <nav class="py-2 bg-light border-bottom">
   <div class="container d-flex flex-wrap">
     <ul class="nav me-auto">
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
+      <li class="nav-item"><a href="/paging" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
     </ul>
     <ul class="nav">
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Sign up</a></li>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+      <div class="text-end">
+        <c:choose>
+        <c:when test="${sessionScope.loginEmail != null}">
+        <span>${sessionScope.loginEmail}님</span>
+        <button type="button" onclick="logoutFn()" class="btn btn-secondary me-2">Logout</button>
+        </c:when>
+        <c:otherwise>
+        <button type="button" onclick="login()" class="btn btn-secondary me-2">Login</button>
+        <button type="button" onclick="saveHeader()" class="btn btn-warning">Sign-up</button>
+        </c:otherwise>
+        </c:choose>
+
     </ul>
   </div>
 </nav>
@@ -33,7 +41,7 @@
   <div class="container d-flex flex-wrap justify-content-center">
     <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
       <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-      <span class="fs-4">Double header</span>
+      <span class="fs-4">BOARD</span>
     </a>
     <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
       <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
@@ -41,4 +49,15 @@
   </div>
 </header>
 </body>
+<script>
+  const login = () => {
+    location.href="/login";
+  }
+  const logoutFn = () => {
+    location.href="/logout";
+  }
+  const saveHeader = () => {
+    location.href="/save";
+  }
+</script>
 </html>
