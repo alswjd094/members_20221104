@@ -18,6 +18,7 @@
     </style>
 </head>
 <body>
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div class="container" id="save-form">
     <form action="/save" method="post" name="saveForm" enctype="multipart/form-data">
         <input type="text" name="memberEmail" id="memberEmail" placeholder="이메일" onblur="emailDuplicateCheck()" class="form-control">

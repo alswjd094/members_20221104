@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/resources/css/bootstrap.css">
 </head>
 <body>
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
   <form action="/writing" method="post" name="saveForm2" enctype="multipart/form-data">
     <input type="text" name="boardTitle" placeholder="제목" class="form-control">

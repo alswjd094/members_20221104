@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/resources/css/bootstrap.css">
 </head>
 <body>
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
   <form action="/login" method="post">
     <input type="text" name="memberEmail" placeholder="이메일" class="form-control">

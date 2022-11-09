@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.css">
 </head>
 <body>
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
     <form action="/update" method="post" name="updateForm">
         <input type="hidden" name="id" value="${findById.id}" class="form-control">

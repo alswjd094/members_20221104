@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/resources/css/bootstrap.css">
 </head>
 <body>
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
 <button onclick="findAllFn()" class="btn btn-primary">회원목록 조회</button>
 </div>

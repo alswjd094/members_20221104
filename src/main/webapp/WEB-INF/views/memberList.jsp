@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/resources/css/bootstrap.css">
 </head>
 <body>
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
   <table class="table table-striped table-hover">
     <tr>

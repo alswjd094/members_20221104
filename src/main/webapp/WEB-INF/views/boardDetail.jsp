@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.css">
 </head>
 <body>
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
     <table class="table table-striped table-hover">
         <tr>
@@ -43,10 +44,6 @@
 <c:if test="${sessionScope.loginEmail == findById.boardWriter}">
     <button onclick="updateFn()" class="btn btn-warning" style="float:right">수정하기</button>
 </c:if>
-
-
-
-
 </body>
 <script>
     const updateFn = () => {
