@@ -41,9 +41,10 @@ public class BoardController {
     }
 
     @GetMapping("/board")
-    public String findById(@RequestParam("id")Long id,Model model){
+    public String findById(@RequestParam("id")Long id,Model model,@RequestParam(value = "page",required = false, defaultValue = "1") int page){
         boardService.updateHits(id);
         BoardDTO findByIdResult = boardService.findById(id);
+        model.addAttribute("page",page);
         model.addAttribute("findById",findByIdResult);
         return "boardDetail";
     }

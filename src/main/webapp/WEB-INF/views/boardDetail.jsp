@@ -38,6 +38,9 @@
         </tr>
     </table>
 </div>
+
+<button onclick="listResult()" class="btn btn-primary">목록</button>
+
 <c:if test="${sessionScope.loginEmail == findById.boardWriter or sessionScope.loginEmail == 'admin'}">
     <button onclick="boardDeleteFn()" class="btn btn-danger" style="float: right">삭제하기</button>
 </c:if>
@@ -46,6 +49,10 @@
 </c:if>
 </body>
 <script>
+    const listResult = () => {
+        const page = '${page}';
+        location.href="/paging?page="+page;
+    }
     const updateFn = () => {
         const id = '${findById.id}';
         location.href="/update?id="+id;
