@@ -18,6 +18,7 @@ public class BoardDTO {
     private String boardContents;
     private int boardHits;
     private Timestamp boardCreatedDate;
+    private int boardId;
 
     private MultipartFile boardFile;
     private String originalFileName_member;

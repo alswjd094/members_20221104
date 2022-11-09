@@ -1,8 +1,10 @@
 package com.its.members.controller;
 
 import com.its.members.dto.BoardDTO;
+import com.its.members.dto.CommentDTO;
 import com.its.members.dto.PageDTO;
 import com.its.members.service.BoardService;
+import com.its.members.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,8 @@ import java.util.List;
 public class BoardController {
     @Autowired
     private BoardService boardService;
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/writing")
     public String writingForm(){
@@ -46,6 +50,8 @@ public class BoardController {
         BoardDTO findByIdResult = boardService.findById(id);
         model.addAttribute("page",page);
         model.addAttribute("findById",findByIdResult);
+        List<CommentDTO> commentDTOList = commentService.findAllComment(id);
+        model.addAttribute("commentList",commentDTOList);
         return "boardDetail";
     }
 
