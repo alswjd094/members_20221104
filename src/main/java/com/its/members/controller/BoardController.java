@@ -67,4 +67,10 @@ public class BoardController {
         boardService.boardDelete(id);
         return "redirect:/paging";
     }
+    @GetMapping("/search")
+    public String search(@RequestParam("type") String type, @RequestParam("q") String q,Model model){
+        List<BoardDTO> searchList = boardService.search(type,q);
+        model.addAttribute("findAll",searchList);
+        return"boardPaging";
+    }
 }

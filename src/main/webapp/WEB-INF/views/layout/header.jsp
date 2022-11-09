@@ -10,6 +10,7 @@
 <head>
     <title>header.jsp</title>
   <link rel="stylesheet" href="/resources/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
 <div class="b-example-divider"></div>
@@ -43,8 +44,14 @@
       <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
       <span class="fs-4">BOARD</span>
     </a>
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
-      <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+    <form action="/search" class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+      <div class="input-group">
+        <select name="type" class="form-select">
+          <option value="boardTitle" selected>제목</option>
+          <option value="boardWriter">작성자</option>
+        </select>
+      <input type="search" name="q" class="form-control" placeholder="Search..." aria-label="Search">
+      </div>
     </form>
   </div>
 </header>
