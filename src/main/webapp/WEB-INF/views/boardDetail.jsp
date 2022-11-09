@@ -37,8 +37,11 @@
         </tr>
     </table>
 </div>
+<c:if test="${sessionScope.loginEmail == findById.boardWriter or sessionScope.loginEmail == 'admin'}">
+    <button onclick="boardDeleteFn()" class="btn btn-danger" style="float: right">삭제하기</button>
+</c:if>
 <c:if test="${sessionScope.loginEmail == findById.boardWriter}">
-<button onclick="updateFn()" class="btn btn-warning" style="float:right">수정하기</button>
+    <button onclick="updateFn()" class="btn btn-warning" style="float:right">수정하기</button>
 </c:if>
 
 
@@ -49,6 +52,10 @@
     const updateFn = () => {
         const id = '${findById.id}';
         location.href="/update?id="+id;
+    }
+    const boardDeleteFn = () => {
+        const id= '${findById.id}';
+        location.href="/boardDelete?id="+id;
     }
 </script>
 </html>

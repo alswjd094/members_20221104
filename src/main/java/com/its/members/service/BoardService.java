@@ -83,4 +83,8 @@ public class BoardService {
     public void update(BoardDTO boardDTO) {
         boardRepository.update(boardDTO);
     }
+
+    public void boardDelete(Long id) {
+        boardRepository.boardDelete(id);
+    }
 }

@@ -61,4 +61,10 @@ public class BoardController {
         model.addAttribute("findById",dto);
         return"boardDetail";
     }
+
+    @GetMapping("/boardDelete")
+    public String boardDelete(@RequestParam("id")Long id){
+        boardService.boardDelete(id);
+        return "redirect:/paging";
+    }
 }

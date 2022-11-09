@@ -42,4 +42,8 @@ public class BoardRepository {
     public void update(BoardDTO boardDTO) {
         sql.update("Board.update",boardDTO);
     }
+
+    public void boardDelete(Long id) {
+        sql.delete("Board.boardDelete",id);
+    }
 }
