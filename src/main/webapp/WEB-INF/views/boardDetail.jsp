@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>boardDetail.jsp</title>
@@ -36,5 +37,18 @@
         </tr>
     </table>
 </div>
+<c:if test="${sessionScope.loginEmail == findById.boardWriter}">
+<button onclick="updateFn()" class="btn btn-warning" style="float:right">수정하기</button>
+</c:if>
+
+
+
+
 </body>
+<script>
+    const updateFn = () => {
+        const id = '${findById.id}';
+        location.href="/update?id="+id;
+    }
+</script>
 </html>

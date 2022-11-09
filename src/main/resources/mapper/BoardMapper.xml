@@ -22,4 +22,7 @@
     <select id="findById" resultType="board" parameterType="board">
         select * from boards_table where id=#{id}
     </select>
+    <update id="update" parameterType="board">
+        update boards_table set boardTitle=#{boardTitle},boardContents=#{boardContents} where id=#{id}
+    </update>
 </mapper>

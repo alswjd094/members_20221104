@@ -47,4 +47,18 @@ public class BoardController {
         model.addAttribute("findById",findByIdResult);
         return "boardDetail";
     }
+
+    @GetMapping("/update")
+    public String updateForm(@RequestParam("id") Long id,Model model){
+        BoardDTO updateForm = boardService.findById(id);
+        model.addAttribute("findById",updateForm);
+        return "boardUpdate";
+    }
+    @PostMapping("/update")
+    public String update(@ModelAttribute BoardDTO boardDTO,Model model){
+        boardService.update(boardDTO);
+        BoardDTO dto = boardService.findById(boardDTO.getId());
+        model.addAttribute("findById",dto);
+        return"boardDetail";
+    }
 }
