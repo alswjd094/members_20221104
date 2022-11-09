@@ -5,10 +5,10 @@
 
 <mapper namespace="Board">
     <insert id="writing" parameterType="board" useGeneratedKeys="true" keyProperty="id">
-        insert into boards_table(boardTitle,boardContents,boardFileName,boardWriter,boardId) values (#{boardTitle},#{boardContents},#{boardFileName},#{boardWriter},#{id})
+        insert into boards_table(boardTitle,boardContents,boardFileName,boardWriter,boardId) values (#{boardTitle},#{boardContents},#{boardFileName},#{boardWriter},#{boardId})
     </insert>
     <insert id="saveFileName2" parameterType="board">
-        insert into boards_file_table(originalFileName_member,storedFileName_member,boardFileId) values (#{originalFileName_member},#{storedFileName_member},#{id})
+        insert into boards_file_table(originalFileName_member,storedFileName_member,boardFileId) values (#{originalFileName_member},#{storedFileName_member},#{boardFileId})
     </insert>
     <select id="pagingList" parameterType="java.util.HashMap" resultType="board">
         select*from boards_table order by id desc limit #{start},#{limit}
@@ -21,6 +21,9 @@
     </update>
     <select id="findById" resultType="board" parameterType="board">
         select * from boards_table where id=#{id}
+    </select>
+    <select id="findByIdFile" resultType="board" parameterType="board">
+        select * from boards_table b, boards_file_table bf where b.id=bf.boardFileId and b.id=#{id}
     </select>
     <update id="update" parameterType="board">
         update boards_table set boardTitle=#{boardTitle},boardContents=#{boardContents} where id=#{id}

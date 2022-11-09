@@ -41,7 +41,7 @@
             <td>${findById.boardTitle}</td>
         </tr>
         <tr>
-            <th>date</th>
+            <th>작성시간</th>
             <td>${findById.boardCreatedDate}</td>
         </tr>
         <tr>
@@ -54,7 +54,7 @@
         </tr>
         <c:if test="${findById.storedFileName_member != null}">
             <tr>
-                <th>file</th>
+                <th>파일</th>
                 <td>
                     <img src="${pageContext.request.contextPath}/upload/${findById.storedFileName_member}"
                          alt="" width="100" height="100">
