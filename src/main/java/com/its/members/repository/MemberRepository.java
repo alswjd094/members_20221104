@@ -32,12 +32,19 @@ public class MemberRepository {
         return sql.selectList("Member.findAll");
     }
 
-    public MemberDTO findById(Long id) {
-        return sql.selectOne("Member.findById",id);
+    public MemberDTO memberFindById(Long id) {
+        return sql.selectOne("Member.memberFindById",id);
     }
 
     public void delete(Long id) {
         sql.delete("Member.delete",id);
     }
 
+    public MemberDTO myPageForm(String memberEmail) {
+        return sql.selectOne("Member.myPageForm",memberEmail);
+    }
+
+    public int myPage(MemberDTO memberDTO) {
+        return sql.update("Member.myPage",memberDTO);
+    }
 }

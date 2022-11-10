@@ -63,17 +63,19 @@
         </c:if>
     </table>
 </div>
-<button onclick="listResult()" class="btn btn-primary">목록</button>
-<c:if test="${sessionScope.loginEmail == findById.boardWriter or sessionScope.loginEmail == 'admin'}">
-    <button onclick="boardDeleteFn()" class="btn btn-danger" style="float: right">삭제하기</button>
-</c:if>
+<div class="col text-center">
+    <button onclick="listResult()" class="btn btn-primary ">목록</button>
 <c:if test="${sessionScope.loginEmail == findById.boardWriter}">
-    <button onclick="updateFn()" class="btn btn-warning" style="float:right">수정하기</button>
+    <button onclick="updateFn()" class="btn btn-warning" >수정하기</button>
 </c:if>
+    <c:if test="${sessionScope.loginEmail == findById.boardWriter or sessionScope.loginEmail == 'admin'}">
+        <button onclick="boardDeleteFn()" class="btn btn-danger">삭제하기</button>
+    </c:if>
+</div>
 <div class="container mt-5" id="comment-write">
     <div class="input-group" mb-3>
         <div class="form-floating">
-            <input type="text" name="commentWriter" id="commentWriter" value="${sessionScope.loginEmail}" class="form-control">
+            <input type="text" name="commentWriter" id="commentWriter" value="${sessionScope.loginEmail}" class="form-control" readonly>
         </div>
         <div class="form-floating">
             <input type="text" id="commentContents" class="form-control" placeholder="내용">

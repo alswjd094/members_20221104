@@ -34,13 +34,11 @@
             </tr>
         </c:forEach>
     </table>
-
 </div>
 <div class="container">
     <ul class="pagination justify-content-center">
         <c:choose>
             <%-- 현재 페이지가 1페이지면 [이전] 글자만 보여줌 --%>
-
             <c:when test="${paging.page<=1}">
                 <li class="page-item disabled">
                     <a class="page-link">[이전]</a>

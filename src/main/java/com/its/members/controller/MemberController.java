@@ -1,5 +1,6 @@
 package com.its.members.controller;
 
+import com.its.members.dto.BoardDTO;
 import com.its.members.dto.MemberDTO;
 import com.its.members.dto.PageDTO;
 import com.its.members.service.MemberService;
@@ -69,18 +70,35 @@ public class MemberController {
         return "memberList";
     }
 
-    @GetMapping("/deleteCheck")
+    @GetMapping("/memberFindById")
     public String findById(@RequestParam("id") Long id,Model model){
-        MemberDTO deleteForm = memberService.findById(id);
-        model.addAttribute("findById",deleteForm);
+        MemberDTO deleteForm = memberService.memberFindById(id);
+        model.addAttribute("memberFindById",deleteForm);
         System.out.println("deleteForm = " + deleteForm);
         System.out.println("id = " + id + ", model = " + model);
-        System.out.println("MemberController.findById");
-        return "deleteCheck";
+        System.out.println("MemberController.memberFindById");
+        return "memberDetail";
     }
     @GetMapping("/delete")
     public String delete (@RequestParam ("id") Long id){
         memberService.delete(id);
         return "redirect:/members";
+    }
+    @GetMapping("/myPage")
+    public String myPageForm(Model model, HttpSession session){
+        String memberEmail = (String) session.getAttribute("loginEmail");
+        MemberDTO myPageForm = memberService.myPageForm(memberEmail);
+        model.addAttribute("findByEmail",myPageForm);
+        return "myPage";
+    }
+
+    @PostMapping("/myPage")
+    public String myPage(@ModelAttribute MemberDTO memberDTO) {
+        boolean myPageResult = memberService.myPage(memberDTO);
+        if (myPageResult) {
+            return "redirect:/memberFindById?id=" + memberDTO.getId();
+        }else{
+            return"index";
+        }
     }
 }

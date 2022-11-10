@@ -21,10 +21,10 @@
 </body>
 <script>
   const deleteCheck = () => {
-    const passDB = ${findById.memberPassword};
+    const passDB = ${memberFindById.memberPassword};
     const passAdmin = document.getElementById("memberPassword").value;
-    const id = ${findById.id};
-    const emailAdmin = ${findById.memberEmail}
+    const id = ${memberFindById.id};
+    const emailAdmin = ${memberFindById.memberEmail}
     if(emailAdmin === "admin" && passDB === passAdmin){
       location.href="/delete?id="+id;
     } else{

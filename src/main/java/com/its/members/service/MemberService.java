@@ -64,12 +64,25 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
-    public MemberDTO findById(Long id) {
-        return memberRepository.findById(id);
+    public MemberDTO memberFindById(Long id) {
+        return memberRepository.memberFindById(id);
     }
 
     public void delete(Long id) {
         memberRepository.delete(id);
     }
 
+
+    public MemberDTO myPageForm(String memberEmail) {
+        return memberRepository.myPageForm(memberEmail);
+    }
+
+    public boolean myPage(MemberDTO memberDTO) {
+        int myPageResult = memberRepository.myPage(memberDTO);
+        if(myPageResult > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

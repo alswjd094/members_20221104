@@ -19,12 +19,18 @@
     <select id="findAll" resultType="member">
         select * from members_table
     </select>
-    <select id="findById" resultType="member" parameterType="member">
+    <select id="memberFindById" resultType="member" parameterType="member">
         select * from members_table where id=#{id}
     </select>
     <delete id="delete" parameterType="Long">
         delete from members_table where id=#{id}
     </delete>
+    <select id="myPageForm" resultType="member" parameterType="member">
+        select * from members_table where memberEmail =#{memberEmail}
+    </select>
+    <update id="myPage" parameterType="member">
+        update members_table set memberName=#{memberName},memberMobile=#{memberMobile},memberProfile=#{memberProfile} where id=#{id}
+    </update>
 
 </mapper>
 
