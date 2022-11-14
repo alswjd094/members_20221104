@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <th>작성시간</th>
-            <td>${findById.boardCreatedDate}</td>
+            <td><fmt:formatDate value="${findById.boardCreatedDate}" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td>
         </tr>
         <tr>
             <th>조회수</th>
@@ -52,11 +52,11 @@
             <th>내용</th>
             <td>${findById.boardContents}</td>
         </tr>
-        <c:if test="${findById.storedFileName_member != null}">
+        <c:if test="${findById.storedFileName_boards != null}">
             <tr>
                 <th>파일</th>
                 <td>
-                    <img src="${pageContext.request.contextPath}/upload/${findById.storedFileName_member}"
+                    <img src="${pageContext.request.contextPath}/upload/${findById.storedFileName_boards}"
                          alt="" width="100" height="100">
                 </td>
             </tr>

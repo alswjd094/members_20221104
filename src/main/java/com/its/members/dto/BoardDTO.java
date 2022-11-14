@@ -21,8 +21,8 @@ public class BoardDTO {
     private Long boardId;
 
     private MultipartFile boardFile;
-    private String originalFileName_member;
-    private String storedFileName_member;
-    private int boardFileName;
+    private String originalFileName_boards;
+    private String storedFileName_boards;
+    private int fileAttached_boards;
     private Long boardFileId;
 }

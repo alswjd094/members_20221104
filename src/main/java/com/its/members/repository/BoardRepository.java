@@ -13,8 +13,9 @@ public class BoardRepository {
     @Autowired
     private SqlSessionTemplate sql;
     public BoardDTO writing(BoardDTO boardDTO) {
-        sql.insert("Board.writing",boardDTO);
+        int result = sql.insert("Board.writing",boardDTO);
         return boardDTO;
+
     }
 
     public void saveFileName2(BoardDTO boardDTO) {
@@ -37,7 +38,7 @@ public class BoardRepository {
 
     public BoardDTO findById(Long id) {
         BoardDTO boardDTO = sql.selectOne("Board.findById",id);
-        if(boardDTO.getBoardFileName()==1) {
+        if(boardDTO.getFileAttached_boards()==1) {
             return sql.selectOne("Board.findByIdFile", id);
         }else{
             return boardDTO;

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>myPage.jsp</title>
@@ -17,10 +18,12 @@
   <form action="/myPage" method="post" name="myPageForm">
     <input type="hidden" name="id" value="${findByEmail.id}" class="form-control">
     이메일<input type="text" name="memberEmail" value="${findByEmail.memberEmail}" class="form-control" readonly>
-    비밀번호<input type="text" name="memberPassword" id="memberPassword" placeholder="비밀번호 입력" class="form-control">
+    비밀번호<input type="password" name="memberPassword" id="memberPassword" placeholder="비밀번호 입력" class="form-control">
     이름<input type="text" name="memberName" value="${findByEmail.memberName}" class="form-control">
     전화번호<input type="text" name="memberMobile" value="${findByEmail.memberMobile}" class="form-control">
-    프로필사진<input type="text" name="memberProfile" value="${findByEmail.memberProfile}" class="form-control">
+<c:if test="${findByEmail.storedFileName_profile != null}">
+    프로필사진<input type="file" name="memberFile" value="${findByEmail.storedFileName_profile}" class="form-control">
+</c:if>
     <input type="button" value="회원정보 수정" class="btn btn-warning" onclick="updateMyPage()">
   </form>
 

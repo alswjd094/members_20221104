@@ -14,6 +14,7 @@
 </head>
 <body>
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
+
 <button onclick="logout()" class="btn btn-danger">로그아웃</button>
 <button onclick="writeFn()" class="btn btn-primary">글쓰기</button>
 <button onclick="listFn()" class="btn btn-primary">글조회</button>

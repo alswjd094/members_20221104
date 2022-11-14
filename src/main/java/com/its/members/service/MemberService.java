@@ -32,13 +32,13 @@ public class MemberService {
             System.out.println("storedFileName = " + storedFileName);
             memberDTO.setOriginalFileName_profile(originalFileName);
             memberDTO.setStoredFileName_profile(storedFileName);
-            String savePath = "C:\\spring_img\\" + storedFileName;
+            String savePath = "C:\\spring_img_profile\\" + storedFileName;
             memberFile.transferTo(new File(savePath));
-            memberDTO.setMemberProfile(1);
+            memberDTO.setFileAttached_members(1);
             MemberDTO saveMember = memberRepository.save(memberDTO);
             memberRepository.saveFileName(saveMember);
         } else {
-            memberDTO.setMemberProfile(0);
+            memberDTO.setFileAttached_members(0);
             memberRepository.save(memberDTO);
         }
     }
@@ -65,15 +65,18 @@ public class MemberService {
     }
 
     public MemberDTO memberFindById(Long id) {
+
         return memberRepository.memberFindById(id);
     }
 
     public void delete(Long id) {
+
         memberRepository.delete(id);
     }
 
 
     public MemberDTO myPageForm(String memberEmail) {
+
         return memberRepository.myPageForm(memberEmail);
     }
 

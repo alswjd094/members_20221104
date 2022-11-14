@@ -30,16 +30,21 @@ public class BoardService {
         if (!boardDTO.getBoardFile().isEmpty()) {
             MultipartFile boardFile = boardDTO.getBoardFile();
             String originalFileNameBoard = boardFile.getOriginalFilename();
+            System.out.println("originalFileNameBoard = " + originalFileNameBoard);
             String storedFileNameBoard = System.currentTimeMillis() + "-" + originalFileNameBoard;
-            boardDTO.setOriginalFileName_member(originalFileNameBoard);
-            boardDTO.setStoredFileName_member(storedFileNameBoard);
+            System.out.println("storedFileNameBoard = " + storedFileNameBoard);
+            boardDTO.setOriginalFileName_boards(originalFileNameBoard);
+            boardDTO.setStoredFileName_boards(storedFileNameBoard);
             String savePath2 = "C:\\spring_img\\" + storedFileNameBoard;
             boardFile.transferTo(new File(savePath2));
-            boardDTO.setBoardFileName(1);
+            boardDTO.setFileAttached_boards(1);
+            //이메일로 멤버테이블 조회
+//            boardRepository.findById(boardDTO.getId());
+//            boardRepository.findById(boardDTO.getBoardId());
             BoardDTO savedBoard = boardRepository.writing(boardDTO);
             boardRepository.saveFileName2(savedBoard);
         } else {
-            boardDTO.setBoardFileName(0);
+            boardDTO.setFileAttached_boards(0);
             boardRepository.writing(boardDTO);
         }
     }

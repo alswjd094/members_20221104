@@ -32,7 +32,7 @@
         <td>${member.memberPassword}</td>
         <td>${member.memberName}</td>
         <td>${member.memberMobile}</td>
-        <td>${member.memberProfile}</td>
+        <td>${member.memberFile}</td>
         <td><button onclick="deleteFn('${member.id}')" class="btn btn-danger">삭제하기</button></td>
       </tr>
     </c:forEach>

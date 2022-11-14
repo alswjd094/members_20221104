@@ -5,7 +5,7 @@
 
 <mapper namespace="Member">
 <insert id="save" parameterType="member" useGeneratedKeys="true" keyProperty="id">
-    insert into members_table(memberEmail,memberPassword,memberName,memberMobile,memberProfile) values(#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile}, #{memberProfile})
+    insert into members_table(memberEmail,memberPassword,memberName,memberMobile, fileAttached_members) values(#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile},#{fileAttached_members})
 </insert>
     <select id="emailDuplicateCheck" resultType="String" parameterType="member">
         select memberEmail from members_table where memberEmail=#{memberEmail}
@@ -14,13 +14,16 @@
     insert into members_file_table(originalFileName_profile,storedFileName_profile,memberId) values(#{originalFileName_profile},#{storedFileName_profile},#{id})
 </insert>
     <select id="login" resultType="member" parameterType="member">
-        select * from members_table where memberEmail=#{memberEmail}
+        select * from members_table where memberEmail=#{memberEmail} and memberPassword=#{memberPassword}
     </select>
     <select id="findAll" resultType="member">
         select * from members_table
     </select>
-    <select id="memberFindById" resultType="member" parameterType="member">
+    <select id="memberFindById" resultType="member" parameterType="Long">
         select * from members_table where id=#{id}
+    </select>
+    <select id="memberFindByIdFile" resultType="member" parameterType="member">
+        select * from members_table m, members_file_table mf where m.id=mf.memberId and m.id=#{id}
     </select>
     <delete id="delete" parameterType="Long">
         delete from members_table where id=#{id}

@@ -12,6 +12,7 @@ public class CommentService {
     @Autowired
     private CommentRepository commentRepository;
     public void commentSave(CommentDTO commentDTO) {
+
         commentRepository.commentSave(commentDTO);
     }
 

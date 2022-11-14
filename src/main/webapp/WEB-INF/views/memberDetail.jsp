@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>memberDetail.jsp</title>
@@ -34,10 +35,12 @@
             <th>전화번호</th>
             <td>${memberFindById.memberMobile}</td>
         </tr>
+<c:if test="${memberFindById.storedFileName_profile != null}">
         <tr>
             <th>프로필사진</th>
-            <td>${memberFindById.memberProfile}</td>
+            <td><img src="${pageContext.request.contextPath}/uploads/${memberFindById.storedFileName_profile}" alt="" width="100" height="100"> </td>
         </tr>
+</c:if>
     </table>
 </div>
 </body>

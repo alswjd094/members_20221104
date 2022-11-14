@@ -50,6 +50,7 @@ public class BoardController {
         BoardDTO findByIdResult = boardService.findById(id);
         model.addAttribute("page",page);
         model.addAttribute("findById",findByIdResult);
+        System.out.println("findByIdResult = " + findByIdResult);
         List<CommentDTO> commentDTOList = commentService.findAllComment(id);
         model.addAttribute("commentList",commentDTOList);
         return "boardDetail";
