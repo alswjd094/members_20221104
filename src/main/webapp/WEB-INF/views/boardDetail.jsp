@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <th>작성시간</th>
-            <td><fmt:formatDate value="${findById.boardCreatedDate}" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate></td>
+            <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${findById.boardCreatedDate}" ></fmt:formatDate></td>
         </tr>
         <tr>
             <th>조회수</th>

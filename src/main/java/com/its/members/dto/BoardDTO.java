@@ -3,7 +3,7 @@ package com.its.members.dto;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 @Getter
 @Setter

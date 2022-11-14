@@ -2,8 +2,10 @@ package com.its.members.service;
 
 import com.its.members.commons.PagingConst;
 import com.its.members.dto.BoardDTO;
+import com.its.members.dto.MemberDTO;
 import com.its.members.dto.PageDTO;
 import com.its.members.repository.BoardRepository;
+import com.its.members.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,6 +21,9 @@ import java.util.Map;
 public class BoardService {
     @Autowired
     private BoardRepository boardRepository;
+    @Autowired
+    private MemberRepository memberRepository;
+
 
     public void writing(BoardDTO boardDTO) throws IOException {
 //        int writingResult = boardRepository.writing(boardDTO);
@@ -38,9 +43,10 @@ public class BoardService {
             String savePath2 = "C:\\spring_img\\" + storedFileNameBoard;
             boardFile.transferTo(new File(savePath2));
             boardDTO.setFileAttached_boards(1);
-            //이메일로 멤버테이블 조회
-//            boardRepository.findById(boardDTO.getId());
-//            boardRepository.findById(boardDTO.getBoardId());
+            //sql boardId값 넣기 -> 이메일로 멤버테이블 조회
+            MemberDTO dto = memberRepository.myPageForm(boardDTO.getBoardWriter());
+            boardDTO.setBoardId(dto.getId());
+
             BoardDTO savedBoard = boardRepository.writing(boardDTO);
             boardRepository.saveFileName2(savedBoard);
         } else {

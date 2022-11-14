@@ -2,7 +2,7 @@ package com.its.members.dto;
 
 import lombok.*;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 @Getter
 @Setter

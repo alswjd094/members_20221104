@@ -14,11 +14,12 @@
 <body>
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
-    <form action="/update" method="post" name="updateForm">
+    <form action="/update" method="post" name="updateForm" enctype="multipart/form-data">
         <input type="hidden" name="id" value="${findById.id}" class="form-control">
         <input type="text" name="boardWriter" value="${findById.boardWriter}" class="form-control" readonly>
         <input type="text" name="boardTitle" value="${findById.boardTitle}" class="form-control">
         <textarea name="boardContents" cols="30" rows="10" class="form-control">${findById.boardContents}</textarea>
+        <input type="file" name="boardFile" value="${findById.storedFileName_boards}" class="form-control">
         <input type="button" value="수정" onclick="updateCheck()" class="btn btn-warning">
     </form>
 </div>
