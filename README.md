@@ -28,6 +28,6 @@ ___
  ## ⚙ 개발 환경
 ___
 
-- IDE: Intellij IDEA 2022.2.3
-- MySQL Workbench 8.0 CE
+- IDE: Intellij IDEA 
+- MySQL 
 - OS: Window 10
