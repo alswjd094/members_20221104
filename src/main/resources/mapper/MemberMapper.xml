@@ -5,7 +5,7 @@
 
 <mapper namespace="Member">
 <insert id="save" parameterType="member" useGeneratedKeys="true" keyProperty="id">
-    insert into members_table(memberEmail,memberPassword,memberName,memberMobile, fileAttached_members) values(#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile},#{fileAttached_members})
+    insert into members_table(memberEmail,memberPassword,memberName,memberMobile, fileAttached_members,memberProfile) values(#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile},#{fileAttached_members},#{memberProfile})
 </insert>
     <select id="emailDuplicateCheck" resultType="String" parameterType="member">
         select memberEmail from members_table where memberEmail=#{memberEmail}
@@ -32,7 +32,7 @@
         select * from members_table where memberEmail =#{memberEmail}
     </select>
     <update id="myPage" parameterType="member">
-        update members_table set memberName=#{memberName},memberMobile=#{memberMobile},memberProfile=#{memberProfile} where id=#{id}
+        update members_table set memberName=#{memberName},memberMobile=#{memberMobile} where id=#{id}
     </update>
 
 </mapper>

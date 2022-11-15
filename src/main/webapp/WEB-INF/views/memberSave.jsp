@@ -38,7 +38,7 @@
     const save = () => {
         console.log("save함수호출");
         const exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{4,12}$/;
-        const exp2 = /^\d{3}-\d{4}-\d{4}$/;
+        // const exp2 = /^\d{3}-\d{4}-\d{4}$/;
         const mobile = document.getElementById("memberMobile");
 
         if(document.saveForm.memberEmail.value ==""){

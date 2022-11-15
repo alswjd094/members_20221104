@@ -15,15 +15,13 @@
 <body>
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
-  <form action="/myPage" method="post" name="myPageForm">
+  <form action="/myPage" method="post" name="myPageForm" enctype="multipart/form-data">
     <input type="hidden" name="id" value="${findByEmail.id}" class="form-control">
     이메일<input type="text" name="memberEmail" value="${findByEmail.memberEmail}" class="form-control" readonly>
     비밀번호<input type="password" name="memberPassword" id="memberPassword" placeholder="비밀번호 입력" class="form-control">
-    이름<input type="text" name="memberName" value="${findByEmail.memberName}" class="form-control">
+      이름<input type="text" name="memberName" value="${findByEmail.memberName}" class="form-control">
     전화번호<input type="text" name="memberMobile" value="${findByEmail.memberMobile}" class="form-control">
-<c:if test="${findByEmail.storedFileName_profile != null}">
-    프로필사진<input type="file" name="memberFile" value="${findByEmail.storedFileName_profile}" class="form-control">
-</c:if>
+<%--    프로필사진<input type="file" name="memberFile" value="${findByEmail.memberProfile}" class="form-control">--%>
     <input type="button" value="회원정보 수정" class="btn btn-warning" onclick="updateMyPage()">
   </form>
 

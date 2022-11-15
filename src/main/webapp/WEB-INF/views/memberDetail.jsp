@@ -35,10 +35,10 @@
             <th>전화번호</th>
             <td>${memberFindById.memberMobile}</td>
         </tr>
-<c:if test="${memberFindById.storedFileName_profile != null}">
+<c:if test="${memberFindById.memberProfile != null}">
         <tr>
             <th>프로필사진</th>
-            <td><img src="${pageContext.request.contextPath}/uploads/${memberFindById.storedFileName_profile}" alt="" width="100" height="100"> </td>
+            <td><img src="${pageContext.request.contextPath}/uploads/${memberFindById.memberProfile}" alt="" width="100" height="100"> </td>
         </tr>
 </c:if>
     </table>
