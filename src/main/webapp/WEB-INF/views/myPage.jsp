@@ -21,7 +21,7 @@
     비밀번호<input type="password" name="memberPassword" id="memberPassword" placeholder="비밀번호 입력" class="form-control">
       이름<input type="text" name="memberName" value="${findByEmail.memberName}" class="form-control">
     전화번호<input type="text" name="memberMobile" value="${findByEmail.memberMobile}" class="form-control">
-<%--    프로필사진<input type="file" name="memberFile" value="${findByEmail.memberProfile}" class="form-control">--%>
+    프로필사진<input type="file" name="memberFileUpdate" value="${findByEmail.memberProfile}" class="form-control">
     <input type="button" value="회원정보 수정" class="btn btn-warning" onclick="updateMyPage()">
   </form>
 

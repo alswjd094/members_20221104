@@ -93,12 +93,9 @@ public class MemberController {
     }
 
     @PostMapping("/myPage")
-    public String myPage(@ModelAttribute MemberDTO memberDTO) {
-        boolean myPageResult = memberService.myPage(memberDTO);
-        if (myPageResult) {
-            return "redirect:/memberFindById?id=" + memberDTO.getId();
-        }else{
-            return"index";
-        }
+    public String myPage(@ModelAttribute MemberDTO memberDTO) throws IOException {
+    memberService.myPage(memberDTO);
+    return "redirect:/memberFindById?id=" + memberDTO.getId();
+
     }
 }

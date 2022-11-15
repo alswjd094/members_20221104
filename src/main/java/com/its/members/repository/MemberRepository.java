@@ -5,6 +5,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.lang.reflect.Member;
 import java.util.List;
 import java.util.Map;
 
@@ -54,8 +55,13 @@ public class MemberRepository {
         return sql.selectOne("Member.myPageForm",memberEmail);
     }
 
-    public int myPage(MemberDTO memberDTO) {
+    public MemberDTO myPage(MemberDTO memberDTO) {
 
-        return sql.update("Member.myPage",memberDTO);
+        sql.update("Member.myPage",memberDTO);
+        return memberDTO;
+    }
+
+    public void saveFileNameUpdate(MemberDTO memberDTO) {
+        sql.update("Member.saveFileNameUpdate",memberDTO);
     }
 }

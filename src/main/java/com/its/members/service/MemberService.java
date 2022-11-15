@@ -85,12 +85,33 @@ public class MemberService {
         return memberRepository.myPageForm(memberEmail);
     }
 
-    public boolean myPage(MemberDTO memberDTO) {
-        int myPageResult = memberRepository.myPage(memberDTO);
-        if(myPageResult > 0){
-            return true;
-        }else{
-            return false;
+    public void myPage(MemberDTO memberDTO) throws IOException{
+//        int myPageResult = memberRepository.myPage(memberDTO);
+//        if(myPageResult > 0){
+//            return true;
+//        }else{
+//            return false;
+        if (!memberDTO.getMemberFileUpdate().isEmpty()) {
+            MultipartFile memberFileUpdate = memberDTO.getMemberFileUpdate();
+            String originalFileNameUpdate = memberFileUpdate.getOriginalFilename();
+            System.out.println("originalFileName = " + originalFileNameUpdate);
+            String storedFileNameUpdate = System.currentTimeMillis() + "-" + originalFileNameUpdate;
+            System.out.println("storedFileName = " + storedFileNameUpdate);
+            memberDTO.setOriginalFileName_profile(originalFileNameUpdate);
+            memberDTO.setStoredFileName_profile(storedFileNameUpdate);
+            String savePathUpdate = "C:\\spring_img_profile\\" + storedFileNameUpdate;
+            memberFileUpdate.transferTo(new File(savePathUpdate));
+            memberDTO.setFileAttached_members(1);
+
+            memberDTO.setMemberProfile(memberDTO.getStoredFileName_profile());
+
+            MemberDTO saveMemberUpdate = memberRepository.myPage(memberDTO);
+            memberRepository.saveFileNameUpdate(saveMemberUpdate);
+
+        } else {
+            memberDTO.setFileAttached_members(0);
+            memberRepository.myPage(memberDTO);
         }
     }
-}
+        }
+
