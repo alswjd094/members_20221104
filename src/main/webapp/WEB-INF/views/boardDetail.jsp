@@ -114,9 +114,9 @@
             data: {
                 commentWriter: writer,
                 commentContents: contents,
-                CommentId: id
+                commentId: id
             },
-            dateType:"json",
+            dataType:"json",
             success: function (commentList){
                 console.log(commentList);
                 let output = "<table class='table'>";

@@ -17,6 +17,7 @@ public class CommentService {
     }
 
     public List<CommentDTO> findAllComment(Long commentId) {
+
         return commentRepository.findAllComment(commentId);
     }
 }
